@@ -17,11 +17,14 @@ const config: HardhatUserConfig = {
       url: 'https://earpc.xinfin.network',
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
+    testxdc: {
+      chainId: 51,
+      url: 'https://earpc.apothem.network',
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
   },
   etherscan: {
-    apiKey: {
-      xdc: 'abc',
-    },
+    apiKey: "teztoken",
     customChains: [
       {
         network: 'xdc',
@@ -29,6 +32,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://api.xdcscan.io/api',
           browserURL: 'https://xdcscan.io',
+        },
+      },
+      {
+        network: 'testxdc',
+        chainId: 51,
+        urls: {
+          apiURL: 'https://api-apothem.xdcscan.io/api',
+          browserURL: 'https://apothem.xdcscan.io',
         },
       },
     ],
